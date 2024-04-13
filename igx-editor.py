@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import filedialog
-from tkinter import OptionMenu
 import xml.etree.ElementTree as ET
 
 class IGXViewer:
@@ -68,17 +67,10 @@ class IGXViewer:
                 label = tk.Label(self.var_frame, text=f"{var_name}:", padx=10, pady=5)
                 label.grid(row=var_index, column=0, sticky="w")
 
-                if var_value == "eET_Hero":
-                    var_dropdown = tk.StringVar(self.root)
-                    var_dropdown.set("eET_Hero")
-                    dropdown_menu = OptionMenu(self.var_frame, var_dropdown, "eET_None", "eET_Hero", "eET_Enemy", "eET_AltEnemy")
-                    dropdown_menu.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_dropdown)
-                else:
-                    var_entry = tk.Entry(self.var_frame, width=20)
-                    var_entry.insert(0, var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
+                var_entry = tk.Entry(self.var_frame, width=20)
+                var_entry.insert(0, var_value)
+                var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                self.var_entries.append(var_entry)
 
     def select_object(self, event):
         selected_index = self.object_list.curselection()
@@ -94,6 +86,9 @@ class IGXViewer:
         for entry in self.var_entries:
             entry.destroy()  
         self.var_entries.clear()  
+
+        for label in self.var_frame.winfo_children():
+            label.destroy()
 
     def save_changes(self):
         if not self.objects:
