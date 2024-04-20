@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, simpledialog
 import xml.etree.ElementTree as ET
 
 class IGXViewer:
@@ -10,6 +10,7 @@ class IGXViewer:
 
         self.objects = []
         self.current_object_index = None
+        self.current_var_index = None
         self.var_entries = []
 
         self.object_frame = tk.Frame(root)
@@ -31,6 +32,12 @@ class IGXViewer:
 
         self.save_button = tk.Button(root, text="Save Changes", command=self.save_changes)
         self.save_button.pack(pady=10)
+
+        self.add_object_button = tk.Button(root, text="Add Object", command=self.add_object)
+        self.add_object_button.pack(pady=10)
+
+        self.add_var_button = tk.Button(root, text="Add Variable", command=self.add_var)
+        self.add_var_button.pack(pady=10)
 
     def load_file(self):
         file_path = filedialog.askopenfilename(
@@ -72,15 +79,18 @@ class IGXViewer:
                 var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
                 self.var_entries.append(var_entry)
 
+                edit_button = tk.Button(self.var_frame, text="Edit", command=lambda idx=var_index: self.edit_var(idx))
+                edit_button.grid(row=var_index, column=2, padx=5, pady=5)
+
     def select_object(self, event):
         selected_index = self.object_list.curselection()
         if selected_index:
             self.current_object_index = selected_index[0]
-            self.clear_vars()  
-            self.display_vars()  
+            self.clear_vars()
+            self.display_vars()
         else:
             self.current_object_index = None
-            self.clear_vars()  
+            self.clear_vars()
 
     def clear_vars(self):
         for entry in self.var_entries:
@@ -110,7 +120,41 @@ class IGXViewer:
                     f.write("\t" + ET.tostring(obj, encoding="unicode").strip() + "\n")
                 f.write("</igx>\n")
 
-            print("Changes saved successfully! yay!")
+            print("Changes saved successfully!")
+
+    def add_object(self):
+        object_name = simpledialog.askstring("Add Object", "Enter the name of the object:")
+        if object_name:
+            new_object = ET.Element("object", refname=object_name)
+            self.objects.append(new_object)
+            self.object_list.insert(tk.END, object_name)
+            self.current_object_index = len(self.objects) - 1
+            self.display_vars()
+
+    def add_var(self):
+        if self.current_object_index is not None:
+            var_name = simpledialog.askstring("Add Variable", "Enter the name of the variable:")
+            if var_name:
+                var_value = simpledialog.askstring("Add Variable", "Enter the value of the variable:")
+                new_var = ET.Element("var", name=var_name, value=var_value)
+                selected_object = self.objects[self.current_object_index]
+                selected_object.append(new_var)
+                self.clear_vars()
+                self.display_vars()
+
+    def edit_var(self, var_index):
+        if self.current_object_index is not None:
+            var_name = simpledialog.askstring("Edit Variable", "Enter the name of the variable:")
+            if var_name:
+                var_value = simpledialog.askstring("Edit Variable", "Enter the value of the variable:")
+                selected_object = self.objects[self.current_object_index]
+                vars_list = selected_object.findall(".//var[@value]")
+                if var_index < len(vars_list):
+                    var = vars_list[var_index]
+                    var.set("name", var_name)
+                    var.set("value", var_value)
+                    self.clear_vars()
+                    self.display_vars()
 
 def main():
     root = tk.Tk()
