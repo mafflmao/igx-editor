@@ -1,6 +1,18 @@
 import tkinter as tk
-from tkinter import filedialog, simpledialog
+from tkinter import filedialog, simpledialog, ttk
 import xml.etree.ElementTree as ET
+from igEnums.CriticalType import CriticalType
+from igEnums.ECollectibleType import ECollectibleType
+from igEnums.ECollectibleWorldModifierCategory import ECollectibleWorldModifierCategory
+from igEnums.EEntityTeam import EEntityTeam
+from igEnums.EQueryFilterType import EQueryFilterType
+from igEnums.EQuerySortMode import EQuerySortMode
+from igEnums.XBUTTON import XBUTTON
+from igEnums.EPointOfInterest import EPointOfInterest
+from igEnums.EStructure import EStructure
+from igEnums.EffectKillTypes import EffectKillTypes
+from igEnums.EFlags import EFlags
+from igEnums.CriticalType import CriticalType
 
 class IGXViewer:
     def __init__(self, root):
@@ -10,7 +22,6 @@ class IGXViewer:
 
         self.objects = []
         self.current_object_index = None
-        self.current_var_index = None
         self.var_entries = []
 
         self.object_frame = tk.Frame(root)
@@ -33,12 +44,6 @@ class IGXViewer:
         self.save_button = tk.Button(root, text="Save Changes", command=self.save_changes)
         self.save_button.pack(pady=10)
 
-        self.add_object_button = tk.Button(root, text="Add Object", command=self.add_object)
-        self.add_object_button.pack(pady=10)
-
-        self.add_var_button = tk.Button(root, text="Add Variable", command=self.add_var)
-        self.add_var_button.pack(pady=10)
-
     def load_file(self):
         file_path = filedialog.askopenfilename(
             title="Select IGX File",
@@ -60,9 +65,7 @@ class IGXViewer:
                 self.object_list.insert(tk.END, obj_name)
 
     def display_vars(self):
-        for entry in self.var_entries:
-            entry.destroy()
-        self.var_entries.clear()
+        self.clear_vars()
 
         if self.current_object_index is not None:
             selected_object = self.objects[self.current_object_index]
@@ -74,19 +77,106 @@ class IGXViewer:
                 label = tk.Label(self.var_frame, text=f"{var_name}:", padx=10, pady=5)
                 label.grid(row=var_index, column=0, sticky="w")
 
-                var_entry = tk.Entry(self.var_frame, width=20)
-                var_entry.insert(0, var_value)
-                var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                self.var_entries.append(var_entry)
+                # Boolean Values
+                if var_value in ["True", "False", "true", "false"]:
+                    var_value_bool = var_value.lower() == "true"
+                    var_entry = tk.BooleanVar(value=var_value_bool)
+                    checkbutton = tk.Checkbutton(self.var_frame, variable=var_entry)
+                    checkbutton.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(checkbutton)
 
-                edit_button = tk.Button(self.var_frame, text="Edit", command=lambda idx=var_index: self.edit_var(idx))
-                edit_button.grid(row=var_index, column=2, padx=5, pady=5)
+                # igEnums.ECollectibleType
+                elif var_name in ["_collectibleType", "CollectibleType"]:
+                    var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in ECollectibleType])
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+                # igEnums.ECollectibleWorldModifierCategory
+                elif var_name in ["_worldModifierCategory", "WorldModifierCategory"]:
+                    var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in ECollectibleWorldModifierCategory])
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+                # igEnums.EEntityTeam
+                elif var_name in ["_team", "Team"]:
+                    var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in EEntityTeam])
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+                # igEnums.XBUTTON
+                elif var_name in ["_button", "Button"]:
+                    button_options = [e.value for e in XBUTTON]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+                    
+                # igEnums.EStructure
+                elif var_name in ["_structure", "Structure"]:
+                    button_options = [e.value for e in EStructure]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+		        # igEnums.EPointOfInterest
+                elif var_name in ["_type", "Type"]:
+                    button_options = [e.value for e in EPointOfInterest]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+                    
+                # igEnums.EffectKillTypes
+                elif var_name in ["_killTypeOnEnd", "KillTypeOnEnd", "_killType", "KillType"]:
+                    button_options = [e.value for e in EffectKillTypes]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+                elif var_name in ["_sortMode", "SortMode", "SortType", "_sortType"]:
+                    button_options = [e.value for e in EQuerySortMode]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+                elif var_name in ["_filterMode", "FilterMode", "FilterType", "_filterType"]:
+                    button_options = [e.value for e in EQueryFilterType]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+                    
+                elif var_name in ["_flag", "Flag", "_flags", "Flags"]:
+                    button_options = [e.value for e in EFlags]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+                    
+                elif var_name in ["_critical", "Critical"]:
+                    button_options = [e.value for e in CriticalType]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+
+                # Default string, might mess up other stuff but unsure at the moment
+                else:
+                    var_entry = tk.Entry(self.var_frame, width=20)
+                    var_entry.insert(0, var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
 
     def select_object(self, event):
         selected_index = self.object_list.curselection()
         if selected_index:
             self.current_object_index = selected_index[0]
-            self.clear_vars()
             self.display_vars()
         else:
             self.current_object_index = None
@@ -94,7 +184,8 @@ class IGXViewer:
 
     def clear_vars(self):
         for entry in self.var_entries:
-            entry.destroy()  
+            if isinstance(entry, tk.Entry) or isinstance(entry, ttk.Combobox):
+                entry.destroy()  
         self.var_entries.clear()  
 
         for label in self.var_frame.winfo_children():
@@ -114,47 +205,10 @@ class IGXViewer:
                 root.append(obj)
 
             tree = ET.ElementTree(root)
-            with open(save_file_path, "w") as f:
-                f.write("<igx>\n")
-                for obj in root:
-                    f.write("\t" + ET.tostring(obj, encoding="unicode").strip() + "\n")
-                f.write("</igx>\n")
+            with open(save_file_path, "wb") as f:
+                tree.write(f)
 
             print("Changes saved successfully!")
-
-    def add_object(self):
-        object_name = simpledialog.askstring("Add Object", "Enter the name of the object:")
-        if object_name:
-            new_object = ET.Element("object", refname=object_name)
-            self.objects.append(new_object)
-            self.object_list.insert(tk.END, object_name)
-            self.current_object_index = len(self.objects) - 1
-            self.display_vars()
-
-    def add_var(self):
-        if self.current_object_index is not None:
-            var_name = simpledialog.askstring("Add Variable", "Enter the name of the variable:")
-            if var_name:
-                var_value = simpledialog.askstring("Add Variable", "Enter the value of the variable:")
-                new_var = ET.Element("var", name=var_name, value=var_value)
-                selected_object = self.objects[self.current_object_index]
-                selected_object.append(new_var)
-                self.clear_vars()
-                self.display_vars()
-
-    def edit_var(self, var_index):
-        if self.current_object_index is not None:
-            var_name = simpledialog.askstring("Edit Variable", "Enter the name of the variable:")
-            if var_name:
-                var_value = simpledialog.askstring("Edit Variable", "Enter the value of the variable:")
-                selected_object = self.objects[self.current_object_index]
-                vars_list = selected_object.findall(".//var[@value]")
-                if var_index < len(vars_list):
-                    var = vars_list[var_index]
-                    var.set("name", var_name)
-                    var.set("value", var_value)
-                    self.clear_vars()
-                    self.display_vars()
 
 def main():
     root = tk.Tk()
