@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog, ttk
 import xml.etree.ElementTree as ET
 from igEnums import *  # Import all enums from igEnums
+from enum import Enum
 
 class IGXViewer:
     def __init__(self, root):
@@ -50,6 +51,7 @@ class IGXViewer:
         root = self.tree.getroot()
         for obj in root.findall(".//object"):
             obj_name = obj.get("refname")
+            print(f"Object found: {obj_name}")  # Debug print for object found
             vars_list = obj.findall(".//var[@value]")
             self.objects.append(obj)  # Always append, even if no vars
             self.object_list.insert(tk.END, obj_name)
@@ -63,6 +65,7 @@ class IGXViewer:
             for var_index, var in enumerate(vars_list):
                 var_name = var.get("name", "Unknown")
                 var_value = var.get("value", "Unknown")
+                print(f"Variable found: {var_name} with value: {var_value}")  # Debug print for var found
 
                 label = tk.Label(self.var_frame, text=f"{var_name}:", padx=10, pady=5)
                 label.grid(row=var_index, column=0, sticky="w")
@@ -79,7 +82,8 @@ class IGXViewer:
                     for enum_class_name, enum_class in globals().items():
                         if isinstance(enum_class, type) and issubclass(enum_class, Enum):
                             if var_value in [e.value for e in enum_class]:
-                                var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in enum_class])
+                                print(f"Value '{var_value}' matches enum '{enum_class_name}'")  # Debug print for enum match
+                                var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in enum_class], width=40)
                                 var_entry.set(var_value)
                                 var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
                                 self.var_entries.append(var_entry)
@@ -88,11 +92,11 @@ class IGXViewer:
 
                     if not enum_found:
                         # Default value, this sometimes breaks but I won't worry about it for now.
-                        var_entry = tk.Entry(self.var_frame)
+                        var_entry = tk.Entry(self.var_frame, width=30)
                         var_entry.insert(0, var_value)
                         var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
                         self.var_entries.append(var_entry)
-                        
+
     def clear_vars(self):
         for widget in self.var_frame.winfo_children():
             widget.destroy()
