@@ -1,19 +1,7 @@
 import tkinter as tk
-from tkinter import filedialog, simpledialog, ttk
+from tkinter import filedialog, ttk
 import xml.etree.ElementTree as ET
-from igEnums.CriticalType import CriticalType
-from igEnums.ECollectibleType import ECollectibleType
-from igEnums.ECollectibleWorldModifierCategory import ECollectibleWorldModifierCategory
-from igEnums.EEntityTeam import EEntityTeam
-from igEnums.EQueryFilterType import EQueryFilterType
-from igEnums.EQuerySortMode import EQuerySortMode
-from igEnums.XBUTTON import XBUTTON
-from igEnums.EPointOfInterest import EPointOfInterest
-from igEnums.EStructure import EStructure
-from igEnums.EffectKillTypes import EffectKillTypes
-from igEnums.EFlags import EFlags
-from igEnums.CriticalType import CriticalType
-from igEnums.EPhysicalEntityDataFlags import EPhysicalEntityDataFlags
+from igEnums import *  # Import all enums from igEnums
 
 class IGXViewer:
     def __init__(self, root):
@@ -24,6 +12,7 @@ class IGXViewer:
         self.objects = []
         self.current_object_index = None
         self.var_entries = []
+        self.tree = None
 
         self.object_frame = tk.Frame(root)
         self.object_frame.pack(side="left", fill="both", expand=True)
@@ -47,8 +36,8 @@ class IGXViewer:
 
     def load_file(self):
         file_path = filedialog.askopenfilename(
-            title="Select IGX File",
-            filetypes=[("IGX Files", "*.igx"), ("All Files", "*.*")]
+            title="Select igXml File",
+            filetypes=[("igXml Files", "*.igx"), ("All Files", "*.*")]
         )
         if file_path:
             self.parse_igx(file_path)
@@ -57,13 +46,13 @@ class IGXViewer:
         self.objects.clear()
         self.object_list.delete(0, tk.END)
 
-        root = ET.parse(file_path).getroot()
+        self.tree = ET.parse(file_path)
+        root = self.tree.getroot()
         for obj in root.findall(".//object"):
             obj_name = obj.get("refname")
             vars_list = obj.findall(".//var[@value]")
-            if vars_list:
-                self.objects.append(obj)
-                self.object_list.insert(tk.END, obj_name)
+            self.objects.append(obj)  # Always append, even if no vars
+            self.object_list.insert(tk.END, obj_name)
 
     def display_vars(self):
         self.clear_vars()
@@ -78,150 +67,67 @@ class IGXViewer:
                 label = tk.Label(self.var_frame, text=f"{var_name}:", padx=10, pady=5)
                 label.grid(row=var_index, column=0, sticky="w")
 
-                # Boolean Values
+                # Check if the value is a boolean
                 if var_value in ["True", "False", "true", "false"]:
                     var_value_bool = var_value.lower() == "true"
                     var_entry = tk.BooleanVar(value=var_value_bool)
                     checkbutton = tk.Checkbutton(self.var_frame, variable=var_entry)
                     checkbutton.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(checkbutton)
-
-                # igEnums.ECollectibleType
-                elif var_name in ["_collectibleType", "CollectibleType"]:
-                    var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in ECollectibleType])
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
                     self.var_entries.append(var_entry)
-
-                # igEnums.ECollectibleWorldModifierCategory
-                elif var_name in ["_worldModifierCategory", "WorldModifierCategory"]:
-                    var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in ECollectibleWorldModifierCategory])
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-
-                # igEnums.EEntityTeam
-                elif var_name in ["_team", "Team"]:
-                    var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in EEntityTeam])
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-
-                # igEnums.XBUTTON
-                elif var_name in ["_button", "Button"]:
-                    button_options = [e.value for e in XBUTTON]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-                    
-                # igEnums.EStructure
-                elif var_name in ["_structure", "Structure"]:
-                    button_options = [e.value for e in EStructure]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-
-		        # igEnums.EPointOfInterest
-                elif var_name in ["_type", "Type"]:
-                    button_options = [e.value for e in EPointOfInterest]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-                    
-                # igEnums.EffectKillTypes
-                elif var_name in ["_killTypeOnEnd", "KillTypeOnEnd", "_killType", "KillType"]:
-                    button_options = [e.value for e in EffectKillTypes]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-
-                elif var_name in ["_sortMode", "SortMode", "SortType", "_sortType"]:
-                    button_options = [e.value for e in EQuerySortMode]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-
-                elif var_name in ["_filterMode", "FilterMode", "FilterType", "_filterType"]:
-                    button_options = [e.value for e in EQueryFilterType]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-                    
-                elif var_name in ["_flag", "Flag", "_flags", "Flags"]:
-                    button_options = [e.value for e in EFlags]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-                    
-                elif var_name in ["_critical", "Critical"]:
-                    button_options = [e.value for e in CriticalType]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-                    
-                elif var_name in ["_physicalEntityFlags"]:
-                    button_options = [e.value for e in EPhysicalEntityDataFlags]
-                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
-                    var_entry.set(var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
-
-                # Default string, might mess up other stuff but unsure at the moment
                 else:
-                    var_entry = tk.Entry(self.var_frame, width=20)
-                    var_entry.insert(0, var_value)
-                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
-                    self.var_entries.append(var_entry)
+                    enum_found = False
+                    for enum_class_name, enum_class in globals().items():
+                        if isinstance(enum_class, type) and issubclass(enum_class, Enum):
+                            if var_value in [e.value for e in enum_class]:
+                                var_entry = ttk.Combobox(self.var_frame, values=[e.value for e in enum_class])
+                                var_entry.set(var_value)
+                                var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                                self.var_entries.append(var_entry)
+                                enum_found = True
+                                break 
+
+                    if not enum_found:
+                        # Default value, this sometimes breaks but I won't worry about it for now.
+                        var_entry = tk.Entry(self.var_frame)
+                        var_entry.insert(0, var_value)
+                        var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                        self.var_entries.append(var_entry)
+                        
+    def clear_vars(self):
+        for widget in self.var_frame.winfo_children():
+            widget.destroy()
+        self.var_entries.clear()
 
     def select_object(self, event):
-        selected_index = self.object_list.curselection()
-        if selected_index:
-            self.current_object_index = selected_index[0]
+        selection = self.object_list.curselection()
+        if selection:
+            self.current_object_index = selection[0]
             self.display_vars()
-        else:
-            self.current_object_index = None
-            self.clear_vars()
-
-    def clear_vars(self):
-        for entry in self.var_entries:
-            if isinstance(entry, tk.Entry) or isinstance(entry, ttk.Combobox):
-                entry.destroy()  
-        self.var_entries.clear()  
-
-        for label in self.var_frame.winfo_children():
-            label.destroy()
 
     def save_changes(self):
-        if not self.objects:
-            return
+        if self.current_object_index is None:
+            return  # No object selected
 
-        save_file_path = filedialog.asksaveasfilename(
+        selected_object = self.objects[self.current_object_index]
+        vars_list = selected_object.findall(".//var[@value]")
+
+        for var_index, var in enumerate(vars_list):
+            if var_index < len(self.var_entries):  # Ensure the variable exists
+                entry = self.var_entries[var_index]
+                var.set("value", entry.get())  # Save the value
+
+        # Saving changes back to the IGX file
+        file_path = filedialog.asksaveasfilename(
             title="Save IGX File",
-            filetypes=[("IGX Files", "*.igx"), ("All Files", "*.*")]
+            defaultextension=".igx",
+            filetypes=[("igXml Files", "*.igx"), ("MUA Files", "*.mua"), ("All Files", "*.*")]
         )
-        if save_file_path:
-            root = ET.Element("igx")
-            for obj in self.objects:
-                root.append(obj)
-
-            tree = ET.ElementTree(root)
-            with open(save_file_path, "wb") as f:
-                tree.write(f)
-
+        if file_path:
+            # Use the original tree to save the updated igXml
+            self.tree.write(file_path, encoding="utf-8", xml_declaration=False)
             print("Changes saved successfully!")
 
-def main():
-    root = tk.Tk()
-    igx_viewer = IGXViewer(root)
-    root.mainloop()
-
 if __name__ == "__main__":
-    main()
+    root = tk.Tk()
+    app = IGXViewer(root)
+    root.mainloop()
