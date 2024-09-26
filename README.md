@@ -1,5 +1,5 @@
 # How to use
-Extract any igXml files with [NefariousTechSupport's igArchiveExtractor](https://github.com/NefariousTechSupport/igArchiveExtractor)
+Extract any igXml files from their igArchives with [NefariousTechSupport's igArchiveExtractor](https://github.com/NefariousTechSupport/igArchiveExtractor)
 
 run the igx-editor.py
 
