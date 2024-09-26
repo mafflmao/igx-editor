@@ -1,0 +1,1034 @@
+<igx>
+	<object refname="ATT_UPG_Defense" type="CCharacterAttribute" root="true">
+		<var name="_attribute" value="eCA_BaseResistance"/>
+		<var name="_value" value="40.00000000"/>
+	</object>
+	<object refname="BaseAttributes" type="CCharacterAttributes" root="true">
+		<var name="_maximumHealth" value="260.00000000"/>
+		<var name="_baseResistance" value="18.00000000"/>
+		<var name="_baseElementalBoost" value="25.00000000"/>
+		<var name="_speed" value="35.00000000"/>
+		<var name="_criticalHitChance" value="8.00000000"/>
+	</object>
+	<object refname="BoltPointLevelUp_gen_gen" type="CBoltPoint" root="true">
+		<var name="_boltName" value="Motion"/>
+		<var name="_preserveBoltName" value="preserve_Motion"/>
+		<var name="_offset" value="0.00000000,0.00000000,40.00000000"/>
+	</object>
+	<object refname="DefaultHeroTargets_queryToAppend_filterMethods_filterMethods_allies_gen_gen" type="CFilterAllies" root="true">
+		<var name="_filterType" value="EQFT_RemoveResultsFromQuery"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius150_filterMethods_filterMethods_Invuln_gen_gen" type="CFilterByInvulnerability" root="true">
+		<var name="_filterType" value="EQFT_RemoveResultsFromQuery"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius150_filterMethods_filterMethods_team_gen_gen" type="CFilterOpponents" root="true"/>
+	<object refname="DefaultHeroTargetsRadius150_queryToAppend_filterMethods_filterMethods_tag_destructible_gen_gen" type="CEntityTagSet" root="true" count="1">
+		<dictitem key="this.EntityType_Destructible_gen_gen" value="true"/>
+	</object>
+	<object refname="EntityType_Destructible_gen_gen" type="CEntityTag" root="true">
+		<var name="_name" value="EntityType_Destructible"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius150_queryToAppend_filterMethods_filterMethods_tag_gen_gen" type="CFilterByTags" root="true">
+		<var name="_tags" ref="this.DefaultHeroTargetsRadius150_queryToAppend_filterMethods_filterMethods_tag_destructible_gen_gen"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_filterMethods_filterMethods_gen_gen" type="CFilterMethodList" root="true" count="3">
+		<listitem ref="this.DefaultHeroTargetsRadius150_filterMethods_filterMethods_team_gen_gen"/>
+		<listitem ref="this.DefaultHeroTargetsRadius150_filterMethods_filterMethods_Invuln_gen_gen"/>
+		<listitem ref="this.DefaultHeroTargetsRadius250_filterMethods_filterMethods_radius250_gen_gen"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_filterMethods_filterMethods_radius250_gen_gen" type="CFilterByDistance" root="true">
+		<var name="_rangeRestriction" value="250.00000000"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_filterMethods_gen_gen" type="CFilterEntities" root="true">
+		<var name="_filterMethods" ref="this.DefaultHeroTargetsRadius250_filterMethods_filterMethods_gen_gen"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_gen_gen" type="CQueryFilter" root="true">
+		<var name="_typesToInclude" value="8"/>
+		<var name="_filterMethods" ref="this.DefaultHeroTargetsRadius250_filterMethods_gen_gen"/>
+		<var name="_sortMode" value="eQSM_SortByDistance"/>
+		<var name="_queryToAppend" ref="this.DefaultHeroTargetsRadius250_queryToAppend_gen_gen"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_queryToAppend_gen_gen" type="CQueryFilter" root="true">
+		<var name="_typesToInclude" value="4"/>
+		<var name="_filterMethods" ref="this.DefaultHeroTargetsRadius250_queryToAppend_filterMethods_gen_gen"/>
+		<var name="_sortMode" value="eQSM_SortByDistance"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_queryToAppend_filterMethods_gen_gen" type="CFilterEntities" root="true">
+		<var name="_filterMethods" ref="this.DefaultHeroTargetsRadius250_queryToAppend_filterMethods_filterMethods_gen_gen"/>
+	</object>
+	<object refname="DefaultHeroTargetsRadius250_queryToAppend_filterMethods_filterMethods_gen_gen" type="CFilterMethodList" root="true" count="4">
+		<listitem ref="this.DefaultHeroTargetsRadius150_filterMethods_filterMethods_Invuln_gen_gen"/>
+		<listitem ref="this.DefaultHeroTargetsRadius150_queryToAppend_filterMethods_filterMethods_tag_gen_gen"/>
+		<listitem ref="this.DefaultHeroTargetsRadius250_filterMethods_filterMethods_radius250_gen_gen"/>
+		<listitem ref="this.DefaultHeroTargets_queryToAppend_filterMethods_filterMethods_allies_gen_gen"/>
+	</object>
+	<object refname="EBOLT_RHANDATTACH_gen" type="CBoltPoint" root="true">
+		<var name="_boltName" value="Bone R HandAttach"/>
+		<var name="_preserveBoltName" value="preserve_BoneRHandAttach"/>
+	</object>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CDetectGroundHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CDropSlamHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_dropslam" value="Dropslam"/>
+	</object>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CPlayerKnockawayHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_hitreacts_knockaway" value="HitReacts_Knockaway"/>
+	</object>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CRailSlideHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_railslide_moving" value="RailSlide_Moving"/>
+	</object>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CSplineHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_jumppad_flyup_loop" value="Jumppad_Flyup_loop"/>
+	</object>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CTakeHitImmunityHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_drivingvehicle" value="DrivingVehicle"/>
+		<dictitem key="state_hitreacts_takehit" value="HitReacts_TakeHit"/>
+	</object>
+	<object refname="Legs_Template_CBehaviorComponentData001_handlers_CTrajectoryAlignmentHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_hitreacts_knockaway" value="HitReacts_Knockaway"/>
+	</object>
+	<object refname="PlayableCharacterBase_CAccoladeComponentData_characterInfo_gen_gen" type="CAccoladeCharacterInfo" root="true">
+		<var name="_characterName" value="PlayableBase"/>
+	</object>
+	<object refname="PlayableCharacterBase_CAccoladeComponentData_gen_gen" type="CAccoladeComponentData" root="true">
+		<var name="_characterInfo" ref="this.PlayableCharacterBase_CAccoladeComponentData_characterInfo_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CChangeCollisionPriorityHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_airlocomotion" value="AirLocomotion"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CChangeCollisionPriorityHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CChangeCollisionPriorityHandler_gen_gen" type="CChangeCollisionPriorityHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CChangeCollisionPriorityHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CChangeCollisionPriorityHandler_excludeActivators_gen_gen"/>
+		<var name="_collisionPriority" value="eCCP_JumpingPlayer"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CDisableJumpHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="3">
+		<dictitem key="state_drivingvehicle_driving" value="DrivingVehicle_Driving"/>
+		<dictitem key="state_hitreacts" value="HitReacts"/>
+		<dictitem key="statemachine_magicmomentrootstatemachine" value="MagicMomentRootStateMachine"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CDisableJumpHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CDisableJumpHandler_gen_gen" type="CDisableJumpHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CDisableJumpHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CDisableJumpHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CDisableTimeScalingHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="4">
+		<dictitem key="state_hitreacts" value="HitReacts"/>
+		<dictitem key="state_magicmoment" value="MagicMoment"/>
+		<dictitem key="state_sharedinteractions" value="SharedInteractions"/>
+		<dictitem key="state_airlocomotion" value="AirLocomotion"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CDisableTimeScalingHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CDisableTimeScalingHandler_gen_gen" type="CDisableTimeScalingHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CDisableTimeScalingHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CDisableTimeScalingHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CRespawnHistoryRecorderHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CRespawnHistoryRecorderHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_sharedinteractions" value="SharedInteractions"/>
+		<dictitem key="statemachine_airlocomotionstatemachine" value="AirLocomotionStateMachine"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CRespawnHistoryRecorderHandler_gen_gen" type="CRespawnHistoryRecorderHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CRespawnHistoryRecorderHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CRespawnHistoryRecorderHandler_excludeActivators_gen_gen"/>
+		<var name="_playerOnly" value="true"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTakeHitImmunityHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_jumppad" value="Jumppad"/>
+		<dictitem key="state_magicmoment_levelspawn" value="MagicMoment_LevelSpawn"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTakeHitImmunityHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTakeHitImmunityHandler_gen_gen" type="CTakeHitImmunityHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTakeHitImmunityHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTakeHitImmunityHandler_excludeActivators_gen_gen"/>
+		<var name="_immunityDuration" value="0.50000000"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTakeHitLogic_activators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTakeHitLogic_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTakeHitLogic_gen_gen" type="CTakeHitLogic" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTakeHitLogic_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTakeHitLogic_excludeActivators_gen_gen"/>
+		<var name="_playerOnly" value="true"/>
+		<var name="_critical" value="true"/>
+		<var name="_allowMultiplePushbacks" value="true"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTurningHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_groundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTurningHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_CTurningHandler_gen_gen" type="CTurningHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTurningHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTurningHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_0_eventsToFilter_gen_gen" type="igStringIntHashTable" root="true" count="2">
+		<dictitem key="Locomotion" value="0"/>
+		<dictitem key="BodyFadeOut" value="0"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_0_gen_gen" type="CBehaviorEventFilterItemData" root="true">
+		<var name="_triggerEvents" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_0_triggerEvents_gen_gen"/>
+		<var name="_eventsToFilter" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_0_eventsToFilter_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_0_triggerEvents_gen_gen" type="igStringIntHashTable" root="true" count="7">
+		<dictitem key="Ability1" value="0"/>
+		<dictitem key="Ability2" value="0"/>
+		<dictitem key="Body_Stormbird_Attack" value="0"/>
+		<dictitem key="BodyFadeIn" value="0"/>
+		<dictitem key="Body_Pirate_Slash" value="0"/>
+		<dictitem key="Body_Pirate_SlashPrep" value="0"/>
+		<dictitem key="Melee_Attack" value="0"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_1_eventsToFilter_gen_gen" type="igStringIntHashTable" root="true" count="2">
+		<dictitem key="Locomotion" value="0"/>
+		<dictitem key="LegsFadeOut" value="0"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_1_gen_gen" type="CBehaviorEventFilterItemData" root="true">
+		<var name="_triggerEvents" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_1_triggerEvents_gen_gen"/>
+		<var name="_eventsToFilter" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_1_eventsToFilter_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_1_triggerEvents_gen_gen" type="igStringIntHashTable" root="true" count="2">
+		<dictitem key="LegsFadeIn" value="0"/>
+		<dictitem key="Ability3" value="0"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_99_eventsToFilter_gen_gen" type="igStringIntHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_99_gen_gen" type="CBehaviorEventFilterItemData" root="true">
+		<var name="_triggerEvents" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_99_triggerEvents_gen_gen"/>
+		<var name="_eventsToFilter" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_99_eventsToFilter_gen_gen"/>
+		<var name="_filterType" value="eFT_KeepEvents"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_99_triggerEvents_gen_gen" type="igStringIntHashTable" root="true" count="2">
+		<dictitem key="Die" value="0"/>
+		<dictitem key="Purify" value="0"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_gen_gen" type="CBehaviorEventFilterTable" root="true" count="3">
+		<dictitem key="1" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_1_gen_gen"/>
+		<dictitem key="0" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_0_gen_gen"/>
+		<dictitem key="99" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_99_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_eventFilterData_gen_gen" type="CBehaviorEventFilterData" root="true">
+		<var name="_filterItems" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_filterItems_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CButtonListenerHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_groundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CButtonListenerHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CButtonListenerHandler_gen_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CButtonListenerHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CButtonListenerHandler_excludeActivators_gen_gen"/>
+		<var name="_playerOnly" value="true"/>
+		<var name="_button" value="XBUTTON_L2"/>
+		<var name="_behaviorEvent" value="Taunt"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CDetectGroundHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CDetectGroundHandler_gen_gen" type="CDetectGroundHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CDetectGroundHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CDetectGroundHandler_excludeActivators_gen_gen"/>
+		<var name="_playerOnly" value="true"/>
+		<var name="_critical" value="true"/>
+		<var name="_minGroundDistance" value="-31.00000000"/>
+		<var name="_fallInitialVelocity" value="350.00000000"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CDropSlamHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CDropSlamHandler_gen_gen" type="Scripts.CDropSlamHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CDropSlamHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CDropSlamHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CGroundLocomotionHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CPlayerKnockawayHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_drivingvehicle" value="DrivingVehicle"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CPlayerKnockawayHandler_gen_gen" type="CPlayerKnockawayHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CPlayerKnockawayHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CPlayerKnockawayHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CRailSlideHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CRailSlideHandler_gen_gen" type="CRailSlideHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CRailSlideHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CRailSlideHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CSplineHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CSplineHandler_gen_gen" type="CSplineHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CSplineHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CSplineHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CTakeHitImmunityHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CTakeHitImmunityHandler_gen_gen" type="CTakeHitImmunityHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CTakeHitImmunityHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CTakeHitImmunityHandler_excludeActivators_gen_gen"/>
+		<var name="_playerOnly" value="true"/>
+		<var name="_immunityDuration" value="0.50000000"/>
+		<var name="_fullyInvulnerable" value="false"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CTrajectoryAlignmentHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_handlers_CTrajectoryAlignmentHandler_gen_gen" type="CTrajectoryAlignmentHandler" root="true">
+		<var name="_activators" ref="this.Legs_Template_CBehaviorComponentData001_handlers_CTrajectoryAlignmentHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CTrajectoryAlignmentHandler_excludeActivators_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_FireEventHandler_activators_gen_gen" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_pvp_victory_in" value="PvP_Victory_In"/>
+		<dictitem key="state_pvp_victory_loop" value="PvP_Victory_Loop"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_FireEventHandler_excludeActivators_gen_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_FireEventHandler_gen_gen" type="Scripts.FireEventHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_FireEventHandler_activators_gen_gen"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_FireEventHandler_excludeActivators_gen_gen"/>
+		<var name="_activateEvent" value="Emotion_PvP_Victory"/>
+		<var name="_deactivateEvent" value="Emotion_Idle"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler" type="Scripts.TimeOutHandler" root="true">
+		<var name="_activators" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler_activators"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler_excludeActivators"/>
+		<var name="TimeOutTime" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler_TimeOutTime"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_idle" value="Idle"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler_excludeActivators" type="igStringStringHashTable" root="true" count="8">
+		<dictitem key="statemachine_magicmomentrootstatemachine" value="MagicMomentRootStateMachine"/>
+		<dictitem key="statemachine_tailstrikestatemachine" value="TailStrikeStateMachine"/>
+		<dictitem key="statemachine_tailrollstatemachine" value="TailRollStateMachine"/>
+		<dictitem key="statemachine_hitreactsrootstatemachine" value="HitReactsRootStateMachine"/>
+		<dictitem key="statemachine_magicmomentstatemachine" value="MagicMomentStateMachine"/>
+		<dictitem key="statemachine_interactionstatemachine" value="InteractionStateMachine"/>
+		<dictitem key="statemachine_poisonlobstatemachine" value="PoisonLobStateMachine"/>
+		<dictitem key="statemachine_airlocomotionrootstatemachine" value="AirLocomotionRootStateMachine"/>
+	</object>
+	<object refname="PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler_TimeOutTime" type="RangedFloat" root="true">
+		<var name="_storage" value="7.00000000,8.00000000"/>
+	</object>
+	<object refname="PlayableCharacterBase_CInElementalZoneComponentData_gen_gen" type="CInElementalZoneComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_CInterruptManagerComponentData_gen_gen" type="CInterruptManagerComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_CMaterialOverrideCombinerComponentData_gen_gen" type="CMaterialOverrideCombinerComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_CNavMoverComponentData_gen_gen" type="CNavMoverComponentData" root="true">
+		<var name="_navMoverData" ref="this.PlayableCharacterBase_CNavMoverComponentData_navMoverData_gen_gen"/>
+		<var name="_killIfKnockedOffWorld" value="false"/>
+		<var name="_killIfBelowWorld" value="false"/>
+	</object>
+	<object refname="PlayableCharacterBase_CNavMoverComponentData_navMoverData_gen_gen" type="CNavMoverData" root="true"/>
+	<object refname="PlayableCharacterBase_CPlayerJumpComponentData_gen_gen" type="CPlayerJumpComponentData" root="true">
+		<var name="_jumpInitialVelocity" value="700.00000000"/>
+		<var name="_jumpHoldGravity" value="-1900.00000000"/>
+		<var name="_jumpReleaseGravity" value="-3500.00000000"/>
+		<var name="_minJumpHoldTime" value="0.25000000"/>
+		<var name="_maxJumpHoldTime" value="0.30000001"/>
+		<var name="_fallGravity" value="-1200.00000000"/>
+		<var name="_fallMaxSpeed" value="-800.00000000"/>
+		<var name="_xyMovementSpeed" value="340.00000000"/>
+		<var name="_surfaceVelocityFadeTime" value="0.12500000"/>
+	</object>
+	<object refname="PlayableCharacterBase_CPlayerRespawnComponentData_gen_gen" type="CPlayerRespawnComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_CPointOfInterestComponentData_gen_gen" type="CPointOfInterestComponentData" root="true">
+		<var name="_type" value="ePOI_Player"/>
+		<var name="_range" value="1000.00000000"/>
+	</object>
+	<object refname="PlayableCharacterBase_CRailSlideTimeSettingComponentData_gen_gen" type="CRailSlideTimeSettingComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_CScreenspaceCharacterSettingsComponentData_gen_gen" type="CScreenspaceCharacterSettingsComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_Scripts_CancelAttackComponentData_gen_gen" type="Scripts.CancelAttackComponentData" root="true"/>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateAbilityUpgradeComponentData_gen_gen" type="Scripts.CelebrateAbilityUpgradeComponentData" root="true">
+		<var name="Vfx" ref="this.PlayableCharacterBase_Scripts_CelebrateAbilityUpgradeComponentData_Vfx_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateAbilityUpgradeComponentData_Vfx_gen_gen" type="CVfxEffectDotNetHandle" root="true">
+		<var name="_handle" ref="Ability_Upgrade.Ability_Upgrade"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateCheckPointComponentData_gen_gen" type="Scripts.CelebrateCheckPointComponentData" root="true">
+		<var name="Vfx" ref="this.PlayableCharacterBase_Scripts_CelebrateCheckPointComponentData_Vfx_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateCheckPointComponentData_Vfx_gen_gen" type="CVfxEffectDotNetHandle" root="true">
+		<var name="_handle" ref="Checkpoint_Celebration.Checkpoint_Celebration"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_gen_gen" type="Scripts.CelebrateLevelUpComponentData" root="true">
+		<var name="Vfx" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_Vfx_gen_gen"/>
+		<var name="VfxBoltPoint" ref="this.BoltPointLevelUp_gen_gen"/>
+		<var name="LevelUpDamageData" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_gen_gen"/>
+		<var name="LevelUpDamageQuery" ref="this.DefaultHeroTargetsRadius250_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_Vfx_gen_gen" type="CVfxEffectDotNetHandle" root="true">
+		<var name="_handle" ref="Character_level_up.Character_level_up"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_gen_gen" type="CDamageData" root="true">
+		<var name="_damageAmountUpgradeable" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_damageAmountUpgradeable_gen_gen"/>
+		<var name="_damageMods" value="4100"/>
+		<var name="_damageType" value="eDMG_Blade"/>
+		<var name="_immunityGroup" value="LevelUpDamage"/>
+		<var name="_takeHitData" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_takeHitData_gen_gen"/>
+		<var name="_knockawayImpulseMin" value="70000.00000000"/>
+		<var name="_knockawayImpulseMax" value="70000.00000000"/>
+		<var name="_knockawayAngleMin" value="45.00000000"/>
+		<var name="_knockawayAngleMax" value="45.00000000"/>
+		<var name="_soundData" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_soundData_gen_gen"/>
+		<var name="_attackIdentifier" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_attackIdentifier_gen_gen"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_damageAmountUpgradeable_gen_gen" type="CUpgradeableInt" root="true">
+		<var name="_defaultValue" value="100"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_takeHitData_gen_gen" type="CTakeHitData" root="true">
+		<var name="_pushBackDistance" value="175.00000000"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_soundData_gen_gen" type="CCombatSoundData" root="true">
+		<var name="_attackSoundUpgradeable" ref="this.CUpgradeableSound"/>
+		<var name="_victimSoundUpgradeable" ref="this.CUpgradeableSound6a"/>
+	</object>
+	<object refname="CUpgradeableSound" type="CUpgradeableSound"/>
+	<object refname="CUpgradeableSound6a" type="CUpgradeableSound"/>
+	<object refname="PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_LevelUpDamageData_attackIdentifier_gen_gen" type="igNamedObject" root="true">
+		<var name="_name" value="PlayerLevelUpDamage"/>
+	</object>
+	<object refname="PlayableCharacterBase_Scripts_DamageDampeningComponentData_gen_gen" type="Scripts.DamageDampeningComponentData" root="true"/>
+	<object refname="Scorpion" type="CActorData" root="true">
+		<var name="_entityFlags" value="271183939"/>
+		<var name="_team" value="eET_Hero"/>
+		<var name="_componentData" ref="this.Scorpion_componentData"/>
+		<var name="_tags" ref="this.TemplateBasic_tags_gen_gen"/>
+		<var name="_collisionPriority" value="eCCP_Normal"/>
+		<var name="_physicalEntityFlags" value="0"/>
+		<var name="_health" value="500"/>
+		<var name="_healthMax" value="500"/>
+		<var name="_character" value="Scorpion"/>
+		<var name="_skin" value="Scorpion"/>
+		<var name="_magicMomentPauseIntroAnimationOverrideTime" value="3.00000000"/>
+		<var name="_characterAnimations" value="Skylanders/Scorpion"/>
+		<var name="_soundBankHandleList" ref="this.Scorpion_soundBankHandleList"/>
+		<var name="_characterScript" value="scripts/Scorpion"/>
+		<var name="_takeHitReactDirections" value="eAHRD_FrontBackLeftRight"/>
+		<var name="_knockawayReactDirections" value="eAHRD_FrontAndBack"/>
+		<var name="_hudPortrait" ref="Scorpio_HUD_materials.ScorpioPortrait"/>
+		<var name="_illustration" ref="Scorpion_Wii_material.Scorpion_Wii_material"/>
+	</object>
+	<object refname="Scorpion_componentData" type="CEntityComponentDataTable" root="true" count="25">
+		<dictitem key="archetype_CScreenspaceCharacterSettingsComponentData" ref="this.PlayableCharacterBase_CScreenspaceCharacterSettingsComponentData_gen_gen"/>
+		<dictitem key="archetype_Scripts.DamageDampeningComponentData" ref="this.PlayableCharacterBase_Scripts_DamageDampeningComponentData_gen_gen"/>
+		<dictitem key="archetype_CQuestComponentData" ref="this.Scorpion_CQuestComponentData"/>
+		<dictitem key="archetype_CHeroicChallengeBoostComponentData" ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_gen"/>
+		<dictitem key="archetype_Scripts.BoltOnComponentData2" ref="this.Scorpion_Scripts_BoltOnComponentData001"/>
+		<dictitem key="archetype_CCharacterProgressionComponentData" ref="this.Scorpion_CCharacterProgressionComponentData"/>
+		<dictitem key="archetype_Scripts.BoltOnComponentData" ref="this.Scorpion_Scripts_BoltOnComponentData"/>
+		<dictitem key="archetype_Scripts.UpgradeRequiredComponentData" ref="this.Scorpion_Scripts_UpgradeRequiredComponentData"/>
+		<dictitem key="archetype_CPlayerRespawnComponentData" ref="this.PlayableCharacterBase_CPlayerRespawnComponentData_gen_gen"/>
+		<dictitem key="archetype_CBehaviorComponentData" ref="this.Scorpion_CBehaviorComponentData"/>
+		<dictitem key="archetype_Scripts.CelebrateAbilityUpgradeComponentData" ref="this.PlayableCharacterBase_Scripts_CelebrateAbilityUpgradeComponentData_gen_gen"/>
+		<dictitem key="archetype_CMaterialOverrideCombinerComponentData" ref="this.PlayableCharacterBase_CMaterialOverrideCombinerComponentData_gen_gen"/>
+		<dictitem key="archetype_CSkillsUpgradeComponentData" ref="this.Scorpion_CSkillsUpgradeComponentData"/>
+		<dictitem key="archetype_CAccoladeComponentData" ref="this.PlayableCharacterBase_CAccoladeComponentData_gen_gen"/>
+		<dictitem key="archetype_CInElementalZoneComponentData" ref="this.PlayableCharacterBase_CInElementalZoneComponentData_gen_gen"/>
+		<dictitem key="archetype_CPVPStrengthComponentData" ref="this.Scorpion_Dabomb_CPVPStrengthComponentData"/>
+		<dictitem key="archetype_Scripts.CancelAttackComponentData" ref="this.PlayableCharacterBase_Scripts_CancelAttackComponentData_gen_gen"/>
+		<dictitem key="archetype_CPlayerJumpComponentData" ref="this.PlayableCharacterBase_CPlayerJumpComponentData_gen_gen"/>
+		<dictitem key="archetype_CPointOfInterestComponentData" ref="this.PlayableCharacterBase_CPointOfInterestComponentData_gen_gen"/>
+		<dictitem key="archetype_CInterruptManagerComponentData" ref="this.PlayableCharacterBase_CInterruptManagerComponentData_gen_gen"/>
+		<dictitem key="archetype_CRailSlideTimeSettingComponentData" ref="this.PlayableCharacterBase_CRailSlideTimeSettingComponentData_gen_gen"/>
+		<dictitem key="archetype_CNavMoverComponentData" ref="this.PlayableCharacterBase_CNavMoverComponentData_gen_gen"/>
+		<dictitem key="archetype_Scripts.CelebrateCheckPointComponentData" ref="this.PlayableCharacterBase_Scripts_CelebrateCheckPointComponentData_gen_gen"/>
+		<dictitem key="archetype_CPlayerAttackComponentData" ref="this.Scorpion_CPlayerAttackComponentData"/>
+		<dictitem key="archetype_Scripts.CelebrateLevelUpComponentData" ref="this.PlayableCharacterBase_Scripts_CelebrateLevelUpComponentData_gen_gen"/>
+	</object>
+	<object refname="Scorpion_CQuestComponentData" type="CQuestComponentData" root="true">
+		<var name="_questList" ref="this.Scorpion_CQuestComponentData_questList"/>
+		<var name="_questRankAttributeBoosts" ref="this.TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_gen"/>
+	</object>
+	<object refname="Scorpion_CQuestComponentData_questList" type="CAccoladeDataHandleList" root="true">
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_BadGuyBasher"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_CulinaryConnoisseur"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_FlawlessChallenger"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_TrueGladiator"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_TotallyMaxedOut"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_Elementalist"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_SaviorOfTheLand"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_Unearther"/>
+		<listitem value="AccoladeList.LocalAccoladeList_Quest_NiceStrike"/>
+	</object>
+	<object refname="TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_gen" type="CQuestRankAttributeTable" root="true" count="3">
+		<dictitem key="eQR_Gold" ref="this.TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_eQR_Gold_gen"/>
+		<dictitem key="eQR_Bronze" ref="this.TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_eQR_Bronze_gen"/>
+		<dictitem key="eQR_Silver" ref="this.TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_eQR_Silver_gen"/>
+	</object>
+	<object refname="TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_eQR_Gold_gen" type="CCharacterAttribute" root="true">
+		<var name="_value" value="75.00000000"/>
+	</object>
+	<object refname="TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_eQR_Bronze_gen" type="CCharacterAttribute" root="true">
+		<var name="_value" value="25.00000000"/>
+	</object>
+	<object refname="TemplateLegacy_CQuestComponentData_questRankAttributeBoosts_eQR_Silver_gen" type="CCharacterAttribute" root="true">
+		<var name="_value" value="50.00000000"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_gen" type="CHeroicChallengeBoostComponentData" root="true">
+		<var name="_spyroChallengeBoosts" ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_gen"/>
+		<var name="_giantChallengeBoosts" ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_giantChallengeBoosts_gen"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_gen" type="CCharacterAttributeList" root="true" count="32">
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen" type="CCharacterAttribute" root="true">
+		<var name="_attribute" value="eCA_BaseElementalBoost"/>
+		<var name="_value" value="0.50000000"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen" type="CCharacterAttribute" root="true">
+		<var name="_attribute" value="eCA_CriticalHitChance"/>
+		<var name="_value" value="0.20000000"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen" type="CCharacterAttribute" root="true">
+		<var name="_attribute" value="eCA_Speed"/>
+		<var name="_value" value="0.25000000"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen" type="CCharacterAttribute" root="true">
+		<var name="_attribute" value="eCA_BaseResistance"/>
+		<var name="_value" value="0.50000000"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_giantChallengeBoosts_gen" type="CCharacterAttributeList" root="true" count="24">
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Elemental_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Speed_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Crit_gen"/>
+		<listitem ref="this.TemplateLegacy_CHeroicChallengeBoostComponentData_spyroChallengeBoosts_Resistance_gen"/>
+	</object>
+	<object refname="TemplateLegacy_CHeroicChallengeBoostComponentData_EMPTY_gen" type="CCharacterAttribute" root="true"/>
+	<object refname="Scorpion_Scripts_BoltOnComponentData001" type="Scripts.BoltOnComponentData" root="true">
+		<var name="boltOnDataList" ref="this.Scorpion_Scripts_BoltOnComponentData001_boltOnDataList"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData001_boltOnDataList" type="System.Collections.Generic.List`1[Scripts.BoltOnData]" root="true" count="1">
+		<listitem ref="this.Scorpion_Scripts_BoltOnComponentData001_boltOnDataList_0"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData001_boltOnDataList_0" type="Scripts.BoltOnData" root="true">
+		<var name="BoltPoint" ref="this.Scorpion_Scripts_BoltOnComponentData001_boltOnDataList_0_TailBolt"/>
+		<var name="BoltonModels" value="EBOLTON_TAIL"/>
+		<var name="BoltOnModelUpgradeString" value="models/Characters/Skylanders/Scorpion/scorpiontailupg.igb"/>
+		<var name="SkillUpgade" ref="this.Scorpion_Upgrade_LastingPoison"/>
+		<var name="BoltVfx" ref="this.Scorpion_Scripts_BoltOnComponentData001_boltOnDataList_0_BoltVfx"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData001_boltOnDataList_0_TailBolt" type="CBoltPoint" root="true">
+		<var name="_boltName" value="Bone Tail4"/>
+		<var name="_preserveBoltName" value="Bone Tail4"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData001_boltOnDataList_0_BoltVfx" type="CVfxEffectDotNetHandle" root="true"/>
+	<object refname="Scorpion_CCharacterProgressionComponentData" type="CCharacterProgressionComponentData" root="true">
+		<var name="_baseAttributes" ref="this.BaseAttributes"/>
+		<var name="_xpRequiredForLevelMap" ref="this.TemplateLegacy_CCharacterProgressionComponentData_xpRequiredForLevelMap_gen"/>
+	</object>
+	<object refname="TemplateLegacy_CCharacterProgressionComponentData_xpRequiredForLevelMap_gen" type="igIntIntHashTable" root="true" count="10">
+		<dictitem key="14" value="80800"/>
+		<dictitem key="18" value="152600"/>
+		<dictitem key="4" value="3800"/>
+		<dictitem key="9" value="24800"/>
+		<dictitem key="13" value="66600"/>
+		<dictitem key="20" value="197500"/>
+		<dictitem key="8" value="18200"/>
+		<dictitem key="2" value="1000"/>
+		<dictitem key="16" value="113700"/>
+		<dictitem key="17" value="132400"/>
+		<dictitem key="7" value="13000"/>
+		<dictitem key="19" value="174300"/>
+		<dictitem key="3" value="2200"/>
+		<dictitem key="1" value="0"/>
+		<dictitem key="5" value="6000"/>
+		<dictitem key="11" value="42700"/>
+		<dictitem key="12" value="53900"/>
+		<dictitem key="10" value="33000"/>
+		<dictitem key="15" value="96500"/>
+		<dictitem key="6" value="9000"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData" type="Scripts.BoltOnComponentData" root="true">
+		<var name="boltOnDataList" ref="this.Scorpion_Scripts_BoltOnComponentData_boltOnDataList"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData_boltOnDataList" type="System.Collections.Generic.List`1[Scripts.BoltOnData]" root="true" count="1">
+		<listitem ref="this.Scorpion_Scripts_BoltOnComponentData_boltOnDataList_0"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData_boltOnDataList_0" type="Scripts.BoltOnData" root="true">
+		<var name="BoltOnModelString" value="models/Characters/Skylanders/Scorpion/scorpioncrystalHeld.igb"/>
+		<var name="BoltPoint" ref="this.EBOLT_RHANDATTACH_gen"/>
+		<var name="BoltonModels" value="EBOLTON_WEAPON"/>
+		<var name="BoltOnModelUpgradeString" value="models/Characters/Skylanders/Scorpion/scorpioncrystalHeldUpgrade.igb"/>
+		<var name="SkillUpgade" ref="this.Scorpion_Upgrade_DeadlyLobs"/>
+		<var name="BoltVfx" ref="this.Scorpion_Scripts_BoltOnComponentData_boltOnDataList_0_BoltVfx"/>
+	</object>
+	<object refname="Scorpion_Scripts_BoltOnComponentData_boltOnDataList_0_BoltVfx" type="CVfxEffectDotNetHandle" root="true"/>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData" type="Scripts.UpgradeRequiredComponentData" root="true">
+		<var name="SkillUpgradeList" ref="this.Scorpion_Scripts_UpgradeRequiredComponentData_SkillUpgradeList"/>
+		<var name="ComponentToAttach" ref="this.Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach"/>
+	</object>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData_SkillUpgradeList" type="CSkillUpgradeFilter" root="true">
+		<var name="_skillUpgrade" ref="this.Scorpion_Upgrade_CarapiceofRock"/>
+	</object>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach" type="Scripts.MaterialOverrideComponentData" root="true">
+		<var name="Materials" ref="this.Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials"/>
+	</object>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials" type="Scripts.MaterialRedirectTableList" root="true" count="1">
+		<listitem ref="this.Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials_CFxMaterialRedirectTable"/>
+	</object>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials_CFxMaterialRedirectTable" type="CFxMaterialRedirectTable" root="true">
+		<var name="_keys" ref="this.Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials_CFxMaterialRedirectTable_keys"/>
+		<var name="_values" ref="this.Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials_CFxMaterialRedirectTable_values"/>
+	</object>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials_CFxMaterialRedirectTable_keys" type="igFxMaterialHandleList" root="true">
+		<listitem value="Scorpion_materials.ScorpioMainBody"/>
+	</object>
+	<object refname="Scorpion_Scripts_UpgradeRequiredComponentData_ComponentToAttach_Materials_CFxMaterialRedirectTable_values" type="igFxMaterialHandleList" root="true">
+		<listitem value="Scorpion_materials_Upgrade.ScorpioMainBody"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData" type="CBehaviorComponentData" root="true">
+		<var name="_behaviorFile" value="behaviors:\Skylanders\Scorpion\Scorpion.hkp"/>
+		<var name="_behaviorEventsFile" value="behavior_events:\Skylanders\Scorpion\Scorpion_combat.igx"/>
+		<var name="_collisionType" value="eCT_PlayableCharacter"/>
+		<var name="_eventFilterData" ref="this.PlayableCharacterBase_CBehaviorComponentData_eventFilterData_gen_gen"/>
+		<var name="_handlers" ref="this.Scorpion_CBehaviorComponentData_handlers"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_handlers" type="CBehaviorLogicDataTable" root="true" count="35">
+		<dictitem key="PlayableCharacterBase_CTakeHitLogic" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTakeHitLogic_gen_gen"/>
+		<dictitem key="PlayableCharacterBase_Scripts.TimeOutHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_TimeOutHandler"/>
+		<dictitem key="Scorpion_CTakeHitImmunityHandler" ref="this.Scorpion_CBehaviorComponentData_CTakeHitImmunityHandler"/>
+		<dictitem key="PlayableCharacterBase_CRespawnHistoryRecorderHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_CRespawnHistoryRecorderHandler_gen_gen"/>
+		<dictitem key="Scorpion_CButtonListenerHandler4" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler003"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler4" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler003_gen"/>
+		<dictitem key="CSplineHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CSplineHandler_gen_gen"/>
+		<dictitem key="CPlayerKnockawayHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CPlayerKnockawayHandler_gen_gen"/>
+		<dictitem key="Scorpion_CButtonListenerHandler" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler"/>
+		<dictitem key="CHeadTrackingHandler" ref="this.TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler"/>
+		<dictitem key="PlayableCharacterBase_CChangeCollisionPriorityHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_CChangeCollisionPriorityHandler_gen_gen"/>
+		<dictitem key="PlayableCharacterBase_Scripts.FireEventHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_Scripts_FireEventHandler_gen_gen"/>
+		<dictitem key="CDetectGroundHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CDetectGroundHandler_gen_gen"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler5" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler004_gen"/>
+		<dictitem key="Scorpion_CFootIKHandler" ref="this.Scorpion_CBehaviorComponentData_CFootIKHandler"/>
+		<dictitem key="CDisableTimeScalingHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_CDisableTimeScalingHandler_gen_gen"/>
+		<dictitem key="Scorpion_Scripts.HeldButtonListenerHandler" ref="this.Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler2" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler001_gen"/>
+		<dictitem key="CButtonListenerHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CButtonListenerHandler_gen_gen"/>
+		<dictitem key="TemplateLegacy_Scripts.CEmotionHandler" ref="this.TemplateLegacy_CBehaviorComponentData_Scripts_CEmotionHandler_gen"/>
+		<dictitem key="CTakeHitImmunityHandlerJumppad" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTakeHitImmunityHandler_gen_gen"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler6" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler005_gen"/>
+		<dictitem key="CTurningHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_CTurningHandler_gen_gen"/>
+		<dictitem key="Scorpion_CButtonListenerHandler2" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler001"/>
+		<dictitem key="Scripts.CDropSlamHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CDropSlamHandler_gen_gen"/>
+		<dictitem key="CGroundLocomotionHandler" ref="this.Scorpion_CBehaviorComponentData_handlers_CGroundLocomotionHandler"/>
+		<dictitem key="CTakeHitImmunityHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CTakeHitImmunityHandler_gen_gen"/>
+		<dictitem key="CTrajectoryAlignmentHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CTrajectoryAlignmentHandler_gen_gen"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler3" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler002_gen"/>
+		<dictitem key="PlayableCharacterBase_CDisableJumpHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_CDisableJumpHandler_gen_gen"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler7" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler006_gen"/>
+		<dictitem key="TemplateLegacy_CButtonListenerHandler" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler_gen"/>
+		<dictitem key="Scorpion_CTurningHandler" ref="this.Scorpion_CBehaviorComponentData_CTurningHandler"/>
+		<dictitem key="Scorpion_CButtonListenerHandler3" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler002"/>
+		<dictitem key="CRailSlideHandler" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CRailSlideHandler_gen_gen"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CTakeHitImmunityHandler" type="CTakeHitImmunityHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CTakeHitImmunityHandler_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CTakeHitImmunityHandler_excludeActivators"/>
+		<var name="_fullyInvulnerable" value="false"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CTakeHitImmunityHandler_activators" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_attack_poisonbomb_loop_partial" value="Attack PoisonBomb Loop Partial.hkx"/>
+		<dictitem key="state_attack_poisonbomb_start_partial" value="Attack PoisonBomb Start Partial.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CTakeHitImmunityHandler_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler003" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler003_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler003_excludeActivators"/>
+		<var name="_button" value="XBUTTON_TORSO_ARMS"/>
+		<var name="_buttonStateToFireEvent" value="eBS_Up"/>
+		<var name="_behaviorEvent" value="PoisonBomb_End"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler003_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_attack_poisonbomb_loop_partial" value="Attack PoisonBomb Loop Partial.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler003_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler003_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler003_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler003_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_DPAD_DN"/>
+		<var name="_behaviorEvent" value="DPad_Emotion_Sad"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler003_activators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler003_excludeActivators_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_emotion_pvp_victory" value="Emotion_PvP_Victory"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler_activators001"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler_excludeActivators"/>
+		<var name="_button" value="XBUTTON_TORSO_ARMS"/>
+		<var name="_behaviorEvent" value="Attack_Lob"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler_activators001" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_attack_poisonlob_l_partial" value="Attack PoisonLob L Partial.hkx"/>
+		<dictitem key="state_attack_poisonlob_r_partial" value="Attack PoisonLob R Partial.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler" type="CHeadTrackingHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler_activators"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler_excludeActivators"/>
+		<var name="_targetPriorityList" ref="this.TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler_targetPriorityList_gen"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler_activators" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_idle" value="Idle"/>
+		<dictitem key="state_groundlocomotion" value="RemovedActivator_state_groundlocomotion"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler_excludeActivators" type="igStringStringHashTable" root="true" count="4">
+		<dictitem key="statemachine_emotiontimeoutstatemachine" value="EmotionTimeoutStateMachine"/>
+		<dictitem key="statemachine_poisonlobstatemachine" value="PoisonLobStateMachine"/>
+		<dictitem key="statemachine_tailstrikestatemachine" value="TailStrikeStateMachine"/>
+		<dictitem key="statemachine_tailrollstatemachine" value="TailRollStateMachine"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CHeadTrackingHandler_targetPriorityList_gen" type="CHeadTrackingTargetList" root="true" count="7">
+		<listitem value="ePOI_Sound"/>
+		<listitem value="ePOI_Conversation"/>
+		<listitem value="ePOI_Objective"/>
+		<listitem value="ePOI_Treasure"/>
+		<listitem value="ePOI_Enemy"/>
+		<listitem value="ePOI_Ambient"/>
+		<listitem value="ePOI_Camera"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler004_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler004_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler004_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_TORSO_ARMS"/>
+		<var name="_behaviorEvent" value="Emotion_Idle"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler004_activators_gen" type="igStringStringHashTable" root="true" count="3">
+		<dictitem key="state_emotion_timeout02" value="Emotion_TimeOut02"/>
+		<dictitem key="state_emotion_timeout01" value="Emotion_TimeOut01"/>
+		<dictitem key="state_emotion_timeout" value="Emotion_Timeout"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler004_excludeActivators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_CFootIKHandler" type="CFootIKHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CFootIKHandler_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CFootIKHandler_excludeActivators"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CFootIKHandler_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_groundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CFootIKHandler_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler" type="Scripts.HeldButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler_excludeActivators"/>
+		<var name="_skillUpgradeFilter" ref="this.Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler_skillUpgradeFilter"/>
+		<var name="_playerOnly" value="true"/>
+		<var name="_critical" value="true"/>
+		<var name="Button" value="XBUTTON_TORSO_ARMS"/>
+		<var name="HeldThresholdTime" value="0.30000001"/>
+		<var name="ThresholdBehaviorEvent" value="PoisonBomb_Start"/>
+		<var name="_instances" ref="this.System.Collections.Generic.Dictionary`2[EPlayerId,Scripts.HeldButtonListenerInstance]"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler_activators" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_attack_poisonlob_l_partial" value="Attack PoisonLob L Partial.hkx"/>
+		<dictitem key="state_attack_poisonlob_r_partial" value="Attack PoisonLob R Partial.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_Scripts_HeldButtonListenerHandler_skillUpgradeFilter" type="CSkillUpgradeFilter" root="true">
+		<var name="_skillUpgrade" ref="this.Scorpion_Upgrade_PoisonBomb"/>
+	</object>
+	<object refname="System.Collections.Generic.Dictionary`2[EPlayerId,Scripts.HeldButtonListenerInstance]" type="System.Collections.Generic.Dictionary`2[EPlayerId,Scripts.HeldButtonListenerInstance]" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler001_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler001_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler001_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_DPAD_LF"/>
+		<var name="_behaviorEvent" value="DPad_Emotion_Happy"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler001_activators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler001_excludeActivators_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_emotion_pvp_victory" value="Emotion_PvP_Victory"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_Scripts_CEmotionHandler_gen" type="Scripts.CEmotionHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_Scripts_CEmotionHandler_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_Scripts_CEmotionHandler_excludeActivators_gen"/>
+		<var name="_emotionEmotionWhenActivated" value="0.05000000"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_Scripts_CEmotionHandler_activators_gen" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_pvp_victory_in" value="PvP_Victory_In"/>
+		<dictitem key="state_pvp_victory_loop" value="PvP_Victory_Loop"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_Scripts_CEmotionHandler_excludeActivators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler005_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler005_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler005_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_HEAD"/>
+		<var name="_behaviorEvent" value="Emotion_Idle"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler005_activators_gen" type="igStringStringHashTable" root="true" count="3">
+		<dictitem key="state_emotion_timeout02" value="Emotion_TimeOut02"/>
+		<dictitem key="state_emotion_timeout01" value="Emotion_TimeOut01"/>
+		<dictitem key="state_emotion_timeout" value="Emotion_Timeout"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler005_excludeActivators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler001" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler001_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler001_excludeActivators"/>
+		<var name="_button" value="XBUTTON_HEAD"/>
+		<var name="_buttonStateToFireEvent" value="eBS_Up"/>
+		<var name="_behaviorEvent" value="TailRoll_End"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler001_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_attack_rollout_loop" value="Attack Rollout Loop.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler001_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_handlers_CGroundLocomotionHandler" type="CGroundLocomotionHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_handlers_CGroundLocomotionHandler_activators"/>
+		<var name="_excludeActivators" ref="this.PlayableCharacterBase_CBehaviorComponentData_handlers_CGroundLocomotionHandler_excludeActivators_gen_gen"/>
+		<var name="_critical" value="true"/>
+		<var name="_runTimeForStop" value="3.00000000"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_handlers_CGroundLocomotionHandler_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_sharedgroundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler002_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler002_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler002_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_DPAD_RT"/>
+		<var name="_behaviorEvent" value="DPad_Emotion_Angry"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler002_activators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler002_excludeActivators_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_emotion_pvp_victory" value="Emotion_PvP_Victory"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler006_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler006_activators_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler006_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_LEGS_TAIL"/>
+		<var name="_behaviorEvent" value="Emotion_Idle"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler006_activators_gen" type="igStringStringHashTable" root="true" count="3">
+		<dictitem key="state_emotion_timeout02" value="Emotion_TimeOut02"/>
+		<dictitem key="state_emotion_timeout01" value="Emotion_TimeOut01"/>
+		<dictitem key="state_emotion_timeout" value="Emotion_Timeout"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler006_excludeActivators_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler_gen" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler_activators001_gen"/>
+		<var name="_excludeActivators" ref="this.TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler_excludeActivators_gen"/>
+		<var name="_button" value="XBUTTON_DPAD_UP"/>
+		<var name="_behaviorEvent" value="DPad_Emotion_Surprise"/>
+	</object>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler_activators001_gen" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="TemplateLegacy_CBehaviorComponentData_CButtonListenerHandler_excludeActivators_gen" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_emotion_pvp_victory" value="Emotion_PvP_Victory"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CTurningHandler" type="CTurningHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CTurningHandler_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CTurningHandler_excludeActivators"/>
+		<var name="_maximumTurnRate" value="191.00000000"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CTurningHandler_activators" type="igStringStringHashTable" root="true" count="3">
+		<dictitem key="state_attack_rollout_end" value="Attack Rollout End.hkx"/>
+		<dictitem key="state_attack_rollout_loop" value="Attack Rollout Loop.hkx"/>
+		<dictitem key="state_attack_rollout_start" value="Attack Rollout Start.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CTurningHandler_excludeActivators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler002" type="CButtonListenerHandler" root="true">
+		<var name="_activators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler002_activators"/>
+		<var name="_excludeActivators" ref="this.Scorpion_CBehaviorComponentData_CButtonListenerHandler002_excludeActivators"/>
+		<var name="_button" value="XBUTTON_TORSO_ARMS"/>
+		<var name="_buttonStateToFireEvent" value="eBS_Up"/>
+		<var name="_behaviorEvent" value="LobFadeOut"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler002_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_attack_poisonbomb_start_partial" value="Attack PoisonBomb Start Partial.hkx"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler002_excludeActivators" type="igStringStringHashTable" root="true" count="2">
+		<dictitem key="state_attack_poisonlob_l_partial" value="Attack PoisonLob L Partial.hkx"/>
+		<dictitem key="state_attack_poisonlob_r_partial" value="Attack PoisonLob R Partial.hkx"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData" type="CSkillsUpgradeComponentData" root="true">
+		<var name="_initialAbilities" ref="this.Scorpion_CSkillsUpgradeComponentData_initialAbilities"/>
+		<var name="_upgrades" ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_initialAbilities" type="CSkillUpgradeList" root="true" count="2">
+		<listitem ref="this.Scorpion_CSkillsUpgradeComponentData_initialAbilities_EmeraldCrystal"/>
+		<listitem ref="this.Scorpion_CSkillsUpgradeComponentData_initialAbilities_TailSting"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_initialAbilities_EmeraldCrystal" type="CSkillUpgrade" root="true">
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpion_Secondary"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_initialAbilities_TailSting" type="CSkillUpgrade" root="true">
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpion_Primary"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades" type="CSkillsUpgradePathList" root="true" count="4">
+		<listitem ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_Basic"/>
+		<listitem ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_Path1"/>
+		<listitem ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_Path2"/>
+		<listitem ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_SoulGem"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_Basic" type="CSkillsUpgradePath" root="true">
+		<var name="_name"/>
+		<var name="_description"/>
+		<var name="_skills" ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_Basic_skills"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_Basic_skills" type="CSkillUpgradeList" root="true" count="4">
+		<listitem ref="this.Scorpion_Upgrade_ScorpiRoll"/>
+		<listitem ref="this.Scorpion_Upgrade_CarapiceofRock"/>
+		<listitem ref="this.Scorpion_Upgrade_PoisonBomb"/>
+		<listitem ref="this.Scorpion_Upgrade_EarthlyPower"/>
+	</object>
+	<object refname="Scorpion_Upgrade_ScorpiRoll" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="500"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Base1"/>
+	</object>
+	<object refname="Scorpion_Upgrade_CarapiceofRock" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="700"/>
+		<var name="_upgradeAttributeBoost" ref="this.Scorpion_Upgrade_CarapiceofRock_upgradeAttributeBoost"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Stat"/>
+	</object>
+	<object refname="Scorpion_Upgrade_CarapiceofRock_upgradeAttributeBoost" type="CCharacterAttributeList" root="true" count="1">
+		<listitem ref="this.ATT_UPG_Defense"/>
+	</object>
+	<object refname="Scorpion_Upgrade_PoisonBomb" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="900"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Base2"/>
+	</object>
+	<object refname="Scorpion_Upgrade_EarthlyPower" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="1200"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Stat2"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_Path1" type="CSkillsUpgradePath" root="true">
+		<var name="_name"/>
+		<var name="_description"/>
+		<var name="_skills" ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_Path1_skills"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_Path1_skills" type="CSkillUpgradeList" root="true" count="3">
+		<listitem ref="this.Scorpion_Upgrade_VenomousEarthstrike"/>
+		<listitem ref="this.Scorpion_Upgrade_StrikingPoison"/>
+		<listitem ref="this.Scorpion_Upgrade_LastingPoison"/>
+	</object>
+	<object refname="Scorpion_Upgrade_VenomousEarthstrike" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="1700"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Path1_1"/>
+	</object>
+	<object refname="Scorpion_Upgrade_StrikingPoison" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="2200"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Path1_2"/>
+	</object>
+	<object refname="Scorpion_Upgrade_LastingPoison" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="3000"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Path1_3"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_Path2" type="CSkillsUpgradePath" root="true">
+		<var name="_name"/>
+		<var name="_description"/>
+		<var name="_skills" ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_Path2_skills"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_Path2_skills" type="CSkillUpgradeList" root="true" count="3">
+		<listitem ref="this.Scorpion_Upgrade_PoisonBallBoost"/>
+		<listitem ref="this.Scorpion_Upgrade_DeadlyLobs"/>
+		<listitem ref="this.Scorpion_Upgrade_PoisonBombBoost"/>
+	</object>
+	<object refname="Scorpion_Upgrade_PoisonBallBoost" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="1700"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Path2_1"/>
+	</object>
+	<object refname="Scorpion_Upgrade_DeadlyLobs" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="2200"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Path2_2"/>
+	</object>
+	<object refname="Scorpion_Upgrade_PoisonBombBoost" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="3000"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_Path2_3"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_SoulGem" type="CSkillsUpgradePath" root="true">
+		<var name="_name"/>
+		<var name="_description"/>
+		<var name="_skills" ref="this.Scorpion_CSkillsUpgradeComponentData_upgrades_SoulGem_skills"/>
+	</object>
+	<object refname="Scorpion_CSkillsUpgradeComponentData_upgrades_SoulGem_skills" type="CSkillUpgradeList" root="true" count="1">
+		<listitem ref="this.Scorpion_SoulGem_ScoriprollInfinate"/>
+	</object>
+	<object refname="Scorpion_SoulGem_ScoriprollInfinate" type="CSkillUpgrade" root="true">
+		<var name="_cost" value="4000"/>
+		<var name="_soulGemData" ref="CollectibleTrackers.SoulGem_Scorpion"/>
+		<var name="_previewImage" ref="Scorpion_AbilityUpgrades.Scorpio_SG"/>
+	</object>
+	<object refname="Scorpion_Dabomb_CPVPStrengthComponentData" type="CPVPStrengthComponentData" root="true">
+		<var name="_pvpStrengthCategory" value="ePVPS_Medium"/>
+	</object>
+	<object refname="Scorpion_CPlayerAttackComponentData" type="CPlayerAttackComponentData" root="true">
+		<var name="_dataTable" ref="this.Scorpion_CPlayerAttackComponentData_dataTable"/>
+	</object>
+	<object refname="Scorpion_CPlayerAttackComponentData_dataTable" type="CPlayerAttackDataTable" root="true" count="3">
+		<dictitem key="ePAT_Primary" ref="this.Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Primary"/>
+		<dictitem key="ePAT_Secondary" ref="this.Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Secondary"/>
+		<dictitem key="ePAT_Tertiary" ref="this.Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Tertiary"/>
+	</object>
+	<object refname="Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Primary" type="CPlayerAttackData" root="true">
+		<var name="_attackEvent" value="Ability1"/>
+		<var name="_attackState" value="PoisonLobStateMachine"/>
+		<var name="_cancelEvent" value="LobFadeOut"/>
+	</object>
+	<object refname="Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Secondary" type="CPlayerAttackData" root="true">
+		<var name="_attackEvent" value="Ability3"/>
+		<var name="_attackState" value="TailRoll"/>
+		<var name="_interruptOtherAttacks" value="true"/>
+		<var name="_skillUpgradeFilter" ref="this.Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Tertiary_skillUpgradeFilter"/>
+	</object>
+	<object refname="Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Tertiary_skillUpgradeFilter" type="CSkillUpgradeFilter" root="true">
+		<var name="_skillUpgrade" ref="this.Scorpion_Upgrade_ScorpiRoll"/>
+	</object>
+	<object refname="Scorpion_CPlayerAttackComponentData_dataTable_ePAT_Tertiary" type="CPlayerAttackData" root="true">
+		<var name="_attackEvent" value="Ability2"/>
+		<var name="_attackState" value="TailStrike"/>
+	</object>
+	<object refname="TemplateBasic_tags_gen_gen" type="CEntityTagSet" root="true" count="0"/>
+	<object refname="Scorpion_soundBankHandleList" type="CAudioArchiveHandleList" root="true">
+		<listitem value="CHAMP_L13_Scorpion_bank.CHAMP_L13_Scorpion_bank"/>
+		<listitem value="CHAMP_L13_Scorpion_bank_Lv.CHAMP_L13_Scorpion_bank_Lv"/>
+		<listitem value="CHAMP_L13_Scorpion_bank_v.CHAMP_L13_Scorpion_bank_v"/>
+	</object>
+	<object refname="Scorpion_behaviorCharacterData_handlers_groundLogic_activatorNames" type="igStringRefList" root="true" count="1">
+		<listitem value="RootStateMachine"/>
+	</object>
+	<object refname="Scorpion_behaviorCharacterData_handlers_playerLore_activatorNames" type="igStringRefList" root="true" count="1">
+		<listitem value="RootStateMachine"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_CButtonListenerHandler_activators" type="igStringStringHashTable" root="true" count="0"/>
+	<object refname="Scorpion_CBehaviorComponentData_handlers_CButtonListenerHandler_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_groundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_handlers_CButtonListenerHandler2_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_groundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="Scorpion_CBehaviorComponentData_handlers_CButtonListenerHandler3_activators" type="igStringStringHashTable" root="true" count="1">
+		<dictitem key="state_groundlocomotion" value="GroundLocomotion"/>
+	</object>
+	<object refname="localizationMarker" type="igLocalizedInfo" root="true"/>
+</igx>
+
