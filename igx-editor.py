@@ -13,6 +13,7 @@ from igEnums.EStructure import EStructure
 from igEnums.EffectKillTypes import EffectKillTypes
 from igEnums.EFlags import EFlags
 from igEnums.CriticalType import CriticalType
+from igEnums.EPhysicalEntityDataFlags import EPhysicalEntityDataFlags
 
 class IGXViewer:
     def __init__(self, root):
@@ -161,6 +162,13 @@ class IGXViewer:
                     
                 elif var_name in ["_critical", "Critical"]:
                     button_options = [e.value for e in CriticalType]
+                    var_entry = ttk.Combobox(self.var_frame, values=button_options)
+                    var_entry.set(var_value)
+                    var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
+                    self.var_entries.append(var_entry)
+                    
+                elif var_name in ["_physicalEntityFlags"]:
+                    button_options = [e.value for e in EPhysicalEntityDataFlags]
                     var_entry = ttk.Combobox(self.var_frame, values=button_options)
                     var_entry.set(var_value)
                     var_entry.grid(row=var_index, column=1, padx=5, pady=5, sticky="e")
