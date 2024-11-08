@@ -13,6 +13,7 @@ This editor should work with
 - Skylanders Spyro's Adventure (WIP, but still functional)
 - Skylanders Giants (WIP, but still functional)
 - Skylanders SWAP Force (Fully Working)
+- Skylanders SWAP Force Alpha (Fully Working)
 - Skylanders Trap Team (WIP, but still functional)
 - Skylanders Superchargers (Fully Working)
 - Skylanders Imaginators (WIP, but still functional)
